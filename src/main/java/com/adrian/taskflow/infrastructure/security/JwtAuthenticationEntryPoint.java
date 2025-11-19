@@ -14,6 +14,7 @@ import java.io.Serializable;
 @Slf4j
 @Component
 public class JwtAuthenticationEntryPoint  implements AuthenticationEntryPoint, Serializable {
+
     @Override
     public void commence(HttpServletRequest request,
                          HttpServletResponse response,

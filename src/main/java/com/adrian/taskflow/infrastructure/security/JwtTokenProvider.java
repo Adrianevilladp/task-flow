@@ -28,6 +28,7 @@ public class JwtTokenProvider {
         Instant now = Instant.now();
         Instant expiry = now.plusMillis(jwtExpirationInMs);
 
+
         return Jwts.builder()
                 .subject(user.getId().toString())
                 .claim("email", user.getEmail())

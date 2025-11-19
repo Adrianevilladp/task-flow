@@ -1,6 +1,8 @@
 package com.adrian.taskflow.infrastructure.controller;
 
+import com.adrian.taskflow.application.request.LoginRequest;
 import com.adrian.taskflow.application.request.RegisterUserRequest;
+import com.adrian.taskflow.application.response.LoginResponse;
 import com.adrian.taskflow.application.response.MessageResponse;
 import com.adrian.taskflow.application.service.AuthService;
 import jakarta.validation.Valid;
@@ -9,10 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -27,5 +26,12 @@ public class AuthController {
         MessageResponse response = authService.register(registerUserRequest);
 
         return new ResponseEntity<>(response, HttpStatus.CREATED);
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<LoginResponse> login(@Valid @RequestBody LoginRequest loginRequest) {
+        LoginResponse response = authService.login(loginRequest);
+
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }

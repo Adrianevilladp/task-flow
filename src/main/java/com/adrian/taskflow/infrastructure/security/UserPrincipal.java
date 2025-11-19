@@ -37,9 +37,11 @@ public class UserPrincipal implements UserDetails {
         this.email = email;
         this.password = password;
 
-        this.authorities = authorities == null ?
-                Collections.emptyList() :
-                new ArrayList<>(authorities);
+        if (authorities == null) {
+            this.authorities = null;
+        } else {
+            this.authorities = new ArrayList<>(authorities);
+        }
     }
 
     public static UserPrincipal create(User user) {
@@ -94,13 +96,14 @@ public class UserPrincipal implements UserDetails {
 
 
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (Objects.isNull(obj) || getClass() != obj.getClass())
-            return false;
-        UserPrincipal that = (UserPrincipal) obj;
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+        UserPrincipal that = (UserPrincipal) object;
         return Objects.equals(id, that.id);
+    }
+
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

@@ -13,6 +13,7 @@ public interface TaskFlowMapper {
     Task toEntity(TaskDTO taskDTO);
     User toEntity(UserDTO userDTO);
     Project toEntity(ProjectDTO projectDTO);
+    ProjectDTO toDTO(Project project);
     Project fromRequestToEntity(ProjectCreateRequest projectCreateRequest);
     User fromRequestToEntity(RegisterUserRequest registerUserRequest);
     Invitation toEntity(InvitationDTO invitationDTO);

@@ -9,7 +9,7 @@ import lombok.Setter;
 
 //here the list of invitation for a project that all workers have
 @Entity
-@Table(name = "users")
+@Table(name = "invitations")
 @Getter
 @Setter
 @AllArgsConstructor

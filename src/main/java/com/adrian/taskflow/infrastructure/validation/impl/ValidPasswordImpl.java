@@ -11,7 +11,7 @@ import java.util.regex.PatternSyntaxException;
 @Slf4j
 public class ValidPasswordImpl implements ConstraintValidator<ValidPassword, String>{
     public static final String PASSWORD_PATTERN =
-            "(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,30}";
+            "(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-.]).{8,30}";
     private static final Pattern pattern = Pattern.compile(PASSWORD_PATTERN);
 
     @Override
