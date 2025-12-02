@@ -12,4 +12,5 @@ public class ProjectDTO {
     private String description;
     private UserDTO owner;
     private Set<TaskDTO> tasks;
+    private Set<UserDTO> members;
 }
